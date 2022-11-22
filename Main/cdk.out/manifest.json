@@ -1,0 +1,108 @@
+{
+  "version": "18.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "appStackk.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "appStackk.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "appStackk": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://994605401052/us-east-2",
+      "properties": {
+        "templateFile": "appStackk.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::994605401052:role/cdk-hnb659fds-deploy-role-994605401052-us-east-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::994605401052:role/cdk-hnb659fds-cfn-exec-role-994605401052-us-east-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-994605401052-us-east-2/0665a1fff97b998bcba475c371b5a735d996ca1b820a5ec088f417a59f4f1a31.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "appStackk.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::994605401052:role/cdk-hnb659fds-lookup-role-994605401052-us-east-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "appStackk.assets"
+      ],
+      "metadata": {
+        "/appStackk/WMJ_Data_retrieval_script/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WMJDataretrievalscriptServiceRoleAD57646B"
+          }
+        ],
+        "/appStackk/WMJ_Data_retrieval_script/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WMJDataretrievalscriptF76F780A"
+          }
+        ],
+        "/appStackk/MyLambdaEventRule": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "cron: If you don't pass 'minute', by default the event runs every minute. Pass 'minute: '*'' if that's what you intend, or 'minute: 0' to run once per hour instead.",
+            "trace": [
+              "Annotations.addMessage (/tmp/jsii-kernel-SbVSpr/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1213)",
+              "Annotations.addWarning (/tmp/jsii-kernel-SbVSpr/node_modules/aws-cdk-lib/core/lib/annotations.js:1:600)",
+              "Object._bind (/tmp/jsii-kernel-SbVSpr/node_modules/aws-cdk-lib/aws-events/lib/schedule.js:1:1941)",
+              "new Rule (/tmp/jsii-kernel-SbVSpr/node_modules/aws-cdk-lib/aws-events/lib/rule.js:1:1094)",
+              "/tmp/tmpo61xb8tk/lib/program.js:8171:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpo61xb8tk/lib/program.js:8592:24)",
+              "Kernel._create (/tmp/tmpo61xb8tk/lib/program.js:8171:34)",
+              "Kernel.create (/tmp/tmpo61xb8tk/lib/program.js:7919:29)",
+              "KernelHost.processRequest (/tmp/tmpo61xb8tk/lib/program.js:9506:36)",
+              "KernelHost.run (/tmp/tmpo61xb8tk/lib/program.js:9469:22)",
+              "Immediate._onImmediate (/tmp/tmpo61xb8tk/lib/program.js:9470:46)",
+              "processImmediate (node:internal/timers:466:21)"
+            ]
+          }
+        ],
+        "/appStackk/MyLambdaEventRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyLambdaEventRule96822EC1"
+          }
+        ],
+        "/appStackk/MyLambdaEventRule/AllowEventRuleappStackkWMJDataretrievalscript6E1DA228": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyLambdaEventRuleAllowEventRuleappStackkWMJDataretrievalscript6E1DA228ACE56AFE"
+          }
+        ],
+        "/appStackk/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/appStackk/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/appStackk/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "appStackk"
+    }
+  }
+}
